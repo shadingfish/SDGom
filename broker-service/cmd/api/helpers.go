@@ -2,9 +2,9 @@ package main
 
 import (
 	"encoding/json"
-	"net/http"
-	"io"
 	"errors"
+	"io"
+	"net/http"
 )
 
 type jsonResponse struct {
@@ -25,7 +25,7 @@ func (app *Config) readJSON(w http.ResponseWriter, r *http.Request, data any) er
 	}
 
 	err = dec.Decode(&struct{}{})
-	if err != io.EOF{
+	if err != io.EOF {
 		return errors.New("body must have only a single JSON value")
 	}
 
@@ -54,7 +54,7 @@ func (app *Config) writeJSON(w http.ResponseWriter, status int, data any, header
 	return nil
 }
 
-func (app *Config) errorJSON(w http.ResponseWriter, err error, status ..int) error {
+func (app *Config) errorJSON(w http.ResponseWriter, err error, status ...int) error {
 	statusCode := http.StatusBadRequest
 
 	if len(status) > 0 {
