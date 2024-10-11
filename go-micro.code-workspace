@@ -20,6 +20,9 @@
 		},
 		{
 			"path": "front-end"
+		},
+		{
+			"path": "listener-service"
 		}
 	],
 	"settings": {}
